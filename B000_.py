@@ -4,37 +4,32 @@
 
 
 """
+
 import os
 import pandas as pd
+from bgen_reader import open_bgen
 from pathlib import Path
 
 
+PD_RAND_STATE = 42
+
+
 class Directory :
-    data_dir = '/disk/genetics/ukb/mahdimir/UKB_PROJECTS_DATA/25Q1/250331_CSF_SSGAC_Alex_UKB_sibsum_sibdiff_analysis_using_array_data'
-    data_dir = Path(data_dir)
-    dta = data_dir
+    dta = '/disk/genetics/ukb/mahdimir/UKB_PROJECTS_DATA/25Q1/250331_CSF_SSGAC_Alex_UKB_sibsum_sibdiff_analysis_using_array_data'
+    dta = Path(dta)
 
     inp = dta / 'inp'
     med = dta / 'med'
     out = dta / 'out'
 
-    ukb_genotype_dir = Path('/disk/genetics2/ukb/orig/UKBv3/genotyped_data')
+    haplotypes = Path('/disk/genetics4/ukb/alextisyoung/haplotypes')
 
 
 class FilePath :
     d = Directory()
 
-    cal_chr22_bed_gz_src = d.ukb_genotype_dir /'ukb_cal_chr22_v2.bed.gz'
-    cal_chr22_bed_gz = d.inp / 'ukb_cal_chr22_v2.bed.gz'
-
-    ukb_snp_chr22_bim_gz = d.ukb_genotype_dir / 'ukb_snp_chr22_v2.bim.gz'
-
-
-    cal_chr22_bed = d.inp / 'ukb_cal_chr22_v2.bed'
-
-    hap_fam_22_src = "/disk/genetics4/ukb/alextisyoung/haplotypes/ukb_hap_chr22_v2.fam"
-    hap_fam_22 = d.inp / 'ukb_hap_chr22_v2.fam'
-    cal_chr22_fam = d.inp / 'ukb_cal_chr22_v2.fam'
+    hap_chr22_bgen = d.haplotypes / 'ukb_hap_chr22_v2.bgen'
+    maf = '/disk/genetics/ukb/mahdimir/UKB_PROJECTS_DATA/24Q1/240317_CSF_SSGAC_Alex_UKB_imputed_gt_corr/med/mfi_v3.prq'
 
 
 class FilePathPattern :
@@ -42,7 +37,8 @@ class FilePathPattern :
 
 
 class Var :
-    pass
+    rsid = 'rsid'
+    maf = 'MAF'
 
 
 def main() :
@@ -51,6 +47,62 @@ def main() :
     ##
     d = Directory()
     fp = FilePath()
+    v = Var()
+
+    ##
+    hap_chr22_bgen = open_bgen(fp.hap_chr22_bgen)
+
+    ##
+    ids = hap_chr22_bgen.ids
+    ids
+
+    ##
+    df_maf = pd.read_parquet(fp.maf , engine = 'pyarrow')
+
+    ##
+    msk = df_maf[v.rsid].isin(ids)
+    df_maf_filtered = df_maf[msk]
+    df_maf_filtered = df_maf_filtered[[v.rsid, v.maf]]
+
+    ##
+    df_maf_filtered.head()
+
+    ##
+    print(df_maf_filtered.shape)
+
+    print(ids.size)
+
+    ##
+    msk = df_maf_filtered[v.maf].ge(1 / 100)
+    df_maf_filtered = df_maf_filtered[msk]
+    print(df_maf_filtered.shape)
+
+    ##
+    df_select_snps = df_maf_filtered.sample(n = 1000, random_state = PD_RAND_STATE)
+    df_select_snps.head()
+
+    ##
+
+
+
+    ##
+
+
+
+    ##
+
+
+    ##
+
+    ##
+
+
+
+    ##
+
+
+    ##
+
 
     ##
     def copy_input_files_into_project_data_folder() :
@@ -85,7 +137,6 @@ def main() :
 
 
 
-
     ##
     bed_df = pd.read_csv(fp.cal_chr22_bed , sep = '\t' , header = None)
 
@@ -97,7 +148,9 @@ def main() :
     from bed_reader import open_bed , sample_file
 
 
-    bed = open_bed(fp.cal_chr22_bed, bim_location = fp.ukb_snp_chr22_bim_gz, fam_location = fp.hap_fam_22_src)
+    bed = open_bed(fp.cal_chr22_bed ,
+                   bim_location = fp.ukb_snp_chr22_bim_gz ,
+                   fam_location = fp.hap_fam_22_src)
     val = bed.read()
     print(val)
 
@@ -109,8 +162,6 @@ def main() :
 
 
     ##
-
-
 
 
 

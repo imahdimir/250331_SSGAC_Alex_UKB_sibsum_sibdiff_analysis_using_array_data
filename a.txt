@@ -1,0 +1,4 @@
+plink2 --bed /disk/genetics2/ukb/orig/UKBv3/genotyped_data/ukb_cal_chr22_v2.bed.gz --bim /disk/genetics2/ukb/orig/UKBv3/genotyped_data/ukb_snp_chr22_v2.bim.gz --fam /disk/genetics4/ukb/alextisyoung/haplotypes/ukb_hap_chr22_v2.fam --export bgen-1.2 --out /disk/genetics/ukb/mahdimir/UKB_PROJECTS_DATA/25Q1/250331_CSF_SSGAC_Alex_UKB_sibsum_sibdiff_analysis_using_array_data/inp/ukb_cal_chr22_v2
+
+
+plink2 --bed /disk/genetics/ukb/mahdimir/UKB_PROJECTS_DATA/25Q1/250331_CSF_SSGAC_Alex_UKB_sibsum_sibdiff_analysis_using_array_data/inp/ukb_cal_chr22_v2.bed --bim /disk/genetics2/ukb/orig/UKBv3/genotyped_data/ukb_snp_chr22_v2.bim.gz --fam /disk/genetics4/ukb/alextisyoung/haplotypes/ukb_hap_chr22_v2.fam --make-pgen --out /disk/genetics/ukb/mahdimir/UKB_PROJECTS_DATA/25Q1/250331_CSF_SSGAC_Alex_UKB_sibsum_sibdiff_analysis_using_array_data/inp

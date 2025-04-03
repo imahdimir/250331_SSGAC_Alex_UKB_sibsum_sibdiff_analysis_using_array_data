@@ -22,14 +22,15 @@ class Directory :
     med = dta / 'med'
     out = dta / 'out'
 
-    haplotypes = Path('/disk/genetics4/ukb/alextisyoung/haplotypes')
+    genotyped_data = Path('/disk/genetics2/ukb/orig/UKBv3/genotyped_data')
+
 
 
 class FilePath :
     d = Directory()
 
-    hap_chr22_bgen = d.haplotypes / 'ukb_hap_chr22_v2.bgen'
     maf = '/disk/genetics/ukb/mahdimir/UKB_PROJECTS_DATA/24Q1/240317_CSF_SSGAC_Alex_UKB_imputed_gt_corr/med/mfi_v3.prq'
+
 
     select_snps_with_maf_chr22 = d.med / 'select_snps_with_maf_chr22.parquet'
 

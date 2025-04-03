@@ -31,6 +31,8 @@ class FilePath :
     hap_chr22_bgen = d.haplotypes / 'ukb_hap_chr22_v2.bgen'
     maf = '/disk/genetics/ukb/mahdimir/UKB_PROJECTS_DATA/24Q1/240317_CSF_SSGAC_Alex_UKB_imputed_gt_corr/med/mfi_v3.prq'
 
+    select_snps_with_maf_chr22 = d.med / 'select_snps_with_maf_chr22.parquet'
+
 
 class FilePathPattern :
     d = Directory()
@@ -41,7 +43,7 @@ class Var :
     maf = 'MAF'
 
 
-def main() :
+def select_snps_on_chr22() :
     pass
 
     ##
@@ -80,6 +82,20 @@ def main() :
     ##
     df_select_snps = df_maf_filtered.sample(n = 1000, random_state = PD_RAND_STATE)
     df_select_snps.head()
+
+    ##
+    df_select_snps.to_parquet(fp.select_snps_with_maf_chr22, index = False)
+
+    ##
+
+
+
+    ##
+
+
+
+    ##
+
 
     ##
 
@@ -163,6 +179,18 @@ def main() :
 
     ##
 
+
+
+    ##
+
+
+    ##
+
+##
+def main() :
+    pass
+
+    ##
 
 
     ##

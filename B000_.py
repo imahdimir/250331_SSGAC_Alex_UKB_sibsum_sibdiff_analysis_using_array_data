@@ -1,4 +1,4 @@
-#!/homes/nber/mahdimir/bulk/.pyenv/versions/3.12.2/envs/250331_SSGAC_Alex_UKB_sibsum_sibdiff_analysis_using_array_data/bin/python3
+#!/homes/nber/mahdimir/bulk/.pyenv/versions/3.12.2/envs/250331_SSGAC_Alex_UKB_sibsum_sibdiff_analysis_using_array_genotyped_data/bin/python3
 
 """
 
@@ -15,8 +15,9 @@ PD_RAND_STATE = 42
 
 
 class Directory :
-    dta = '/disk/genetics/ukb/mahdimir/UKB_PROJECTS_DATA/25Q1/250331_CSF_SSGAC_Alex_UKB_sibsum_sibdiff_analysis_using_array_data'
-    dta = Path(dta)
+    dta = Path('/disk/genetics/ukb/mahdimir/UKB_PROJECTS_DATA/25Q1/250331_SSGAC_tA1_Alex_UKB_sibsum_sibdiff_analysis_using_array_genotyped_data/out/')
+
+    out_synced = Path('/Users/mmir/Library/CloudStorage/Dropbox/git/250331_SSGAC_tA2_Alex_UKB_sibsum_sibdiff_analysis_using_array_genotyped_data/250331_SSGAC_tA1_Alex_UKB_sibsum_sibdiff_analysis_using_array_genotyped_data/out_synced')
 
     inp = dta / 'inp'
     med = dta / 'med'
@@ -203,3 +204,59 @@ def main() :
 ##
 if __name__ == '__main__' :
     main()
+
+
+##
+import pathlib
+import pyperclip
+
+def make_rsync_cmds_and_copy_desired_one_to_clipboard(local: pathlib.Path, remote : pathlib.Path, hostname : str, cmd_number_to_cp_clipboard = None):
+    """
+    rsync should be installed on both local and remote machines.
+    host should be accessible via ssh f'{hostname}' (by setting up ssk key and ssh config)
+    hostname: should be known to local machine and accessible via ssh hostname (ssh key and ssh confige must be set up)
+    local: Path to the local directory where files will be synced to/from
+    remote: Path to the remote directory where files will be synced to/from
+    cmd_number_to_cp_clipboard: int, optional
+    If provided, the corresponding rsync command will be copied to clipboard so it can be easily pasted into a terminal for execution.
+    """
+
+    cmds = {}
+
+    print("1. sync from remote to local")
+    cmds[1] = f"rsync -avz {hostname}:{remote}/ {local}"
+    print(cmds[1], '\n')
+
+
+    print("2. sync from local to remote")
+    cmds[2] = f"rsync -avz {local}/ {hostname}:{remote}"
+    print(cmds[2], '\n')
+
+
+    print("3. sync from remote to local with delete option (remove files in local not present in remote)")
+    cmds[3] = f"rsync -avz --delete {hostname}:{remote}/ {local}"
+    print(cmds[3], '\n')
+
+    print("4. sync from local to remote with delete option (remove files in remote not present in local)")
+    cmds[4] = f"rsync -avz --delete {local}/ {hostname}:{remote}"
+    print(cmds[4], '\n')
+
+    if cmd_number_to_cp_clipboard is not None :
+        pyperclip.copy(cmds[cmd_number_to_cp_clipboard])
+        print(f"Command {cmd_number_to_cp_clipboard} copied to clipboard.")
+
+    print('Run the desired cmd (might have been copied in clipboard) in local terminal to execute the rsync command.')
+
+##
+d = Directory()
+
+##
+make_rsync_cmds_copy_to_clipboard(d.out_synced, d.dta, 'g01', 3)
+
+##
+d.dta = d.dta / '1'
+
+##
+d.dta
+
+##

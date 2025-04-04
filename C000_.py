@@ -1,4 +1,4 @@
-#!/homes/nber/mahdimir/bulk/.pyenv/versions/3.12.2/envs/250331_SSGAC_Alex_UKB_sibsum_sibdiff_analysis_using_array_genotyped_data/bin/python3
+#!/homes/nber/mahdimir/bulk/.pyenv/versions/3.12.2/envs/i5i0_SSGAC_Alex_UKB_sibsum_sibdiff_analysis_using_array_genotyped_data/bin/python3
 
 """
 
@@ -11,38 +11,6 @@ from bgen_reader import open_bgen
 from pathlib import Path
 
 
-PD_RAND_STATE = 42
-
-
-class Directory :
-    dta = Path('/disk/genetics/ukb/mahdimir/UKB_PROJECTS_DATA/25Q1/250331_SSGAC_tA1_Alex_UKB_sibsum_sibdiff_analysis_using_array_genotyped_data/out/')
-
-    out_synced = Path('/Users/mmir/Library/CloudStorage/Dropbox/git/250331_SSGAC_tA2_Alex_UKB_sibsum_sibdiff_analysis_using_array_genotyped_data/250331_SSGAC_tA1_Alex_UKB_sibsum_sibdiff_analysis_using_array_genotyped_data/out_synced')
-
-    inp = dta / 'inp'
-    med = dta / 'med'
-    out = dta / 'out'
-
-    genotyped_data = Path('/disk/genetics2/ukb/orig/UKBv3/genotyped_data')
-
-
-
-class FilePath :
-    d = Directory()
-
-    maf = '/disk/genetics/ukb/mahdimir/UKB_PROJECTS_DATA/24Q1/240317_CSF_SSGAC_Alex_UKB_imputed_gt_corr/med/mfi_v3.prq'
-
-
-    select_snps_with_maf_chr22 = d.med / 'select_snps_with_maf_chr22.parquet'
-
-
-class FilePathPattern :
-    d = Directory()
-
-
-class Var :
-    rsid = 'rsid'
-    maf = 'MAF'
 
 
 def select_snps_on_chr22() :
@@ -54,39 +22,7 @@ def select_snps_on_chr22() :
     v = Var()
 
     ##
-    hap_chr22_bgen = open_bgen(fp.hap_chr22_bgen)
 
-    ##
-    ids = hap_chr22_bgen.ids
-    ids
-
-    ##
-    df_maf = pd.read_parquet(fp.maf , engine = 'pyarrow')
-
-    ##
-    msk = df_maf[v.rsid].isin(ids)
-    df_maf_filtered = df_maf[msk]
-    df_maf_filtered = df_maf_filtered[[v.rsid, v.maf]]
-
-    ##
-    df_maf_filtered.head()
-
-    ##
-    print(df_maf_filtered.shape)
-
-    print(ids.size)
-
-    ##
-    msk = df_maf_filtered[v.maf].ge(1 / 100)
-    df_maf_filtered = df_maf_filtered[msk]
-    print(df_maf_filtered.shape)
-
-    ##
-    df_select_snps = df_maf_filtered.sample(n = 1000, random_state = PD_RAND_STATE)
-    df_select_snps.head()
-
-    ##
-    df_select_snps.to_parquet(fp.select_snps_with_maf_chr22, index = False)
 
     ##
 

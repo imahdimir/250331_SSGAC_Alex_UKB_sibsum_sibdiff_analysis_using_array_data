@@ -1,0 +1,2 @@
+# py version=3.12.2
+i6_rsync==0.0.0

@@ -1,10 +1,3 @@
-#!/homes/nber/mahdimir/bulk/.pyenv/versions/3.12.2/envs/i5i0_SSGAC_Alex_UKB_sibsum_sibdiff_analysis_using_array_genotyped_data/bin/python3
-
-"""
-
-
-"""
-
 from pathlib import Path
 
 
@@ -22,15 +15,17 @@ class Directory :
     out_synced = '/Users/mmir/Library/CloudStorage/Dropbox/git/i5i2_SSGAC_tA2_Alex_UKB_sibsum_sibdiff_analysis_using_array_genotyped_data/i5i1_SSGAC_tA1_Alex_UKB_sibsum_sibdiff_analysis_using_array_genotyped_data/out_synced'
     out_synced = Path(out_synced)
 
-    genotyped_data = Path('/disk/genetics2/ukb/orig/UKBv3/genotyped_data')
+    genotyped_data_decompressed = Path('/disk/genetics/ukb/mahdimir/UKB_NON_PROJECT_DATA/UKBv3_raw_genotyped_decompressed')
 
 
 class FilePath :
     d = Directory()
 
-    maf = '/disk/genetics/ukb/mahdimir/UKB_PROJECTS_DATA/24Q1/240317_CSF_SSGAC_Alex_UKB_imputed_gt_corr/med/mfi_v3.prq'
+    chr22_bed = d.genotyped_data_decompressed / 'ukb_cal_chr22_v2.bed'
+    chr22_bim = d.genotyped_data_decompressed / 'ukb_snp_chr22_v2.bim'
+    all_fam = d.genotyped_data_decompressed / 'all.fam'
 
-    cal_chr22_bed_gz = d.genotyped_data / 'ukb_cal_chr22_v3.bed.gz'
+    maf = '/disk/genetics/ukb/mahdimir/UKB_PROJECTS_DATA/24Q1/240317_CSF_SSGAC_Alex_UKB_imputed_gt_corr/med/mfi_v3.prq'
 
     select_snps_with_maf_chr22 = d.med / 'select_snps_with_maf_chr22.parquet'
 

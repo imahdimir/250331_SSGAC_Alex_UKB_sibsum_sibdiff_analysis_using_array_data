@@ -1,2 +1,6 @@
-# py version=3.12.2
+# py_version=3.12.2
+# venv: /homes/nber/mahdimir/bulk/.pyenv/versions/3.12.2/envs/i5i0_SSGAC_Alex_UKB_sibsum_sibdiff_analysis_using_array_genotyped_data/bin/python3
 i6_rsync==0.0.0
+i7_hot_reload==0.0.0
+bed-reader==1.0.6
+i8_compression_tools_pip_pkg==0.0.0

@@ -1,0 +1,4 @@
+# py_version:
+3.12.2
+# venv on NBER Genetics Servers:
+/homes/nber/mahdimir/bulk/.pyenv/versions/3.12.2/envs/i5_n0_SSGAC_Alex_UKB_sibsum_sibdiff_analysis_using_array_genotyped_data/bin/python3

@@ -1,9 +1,6 @@
 from pathlib import Path
 
 
-PD_RAND_STATE = 42
-
-
 class Directory :
     dta = '/disk/genetics/ukb/mahdimir/UKB_PROJECTS_DATA/i18/i18_n1_SSGAC_tA1_Alex_UKB_sibsum_sibdiff_analysis_using_array_genotyped_data'
     dta = Path(dta)
@@ -28,16 +25,24 @@ class FilePath :
 
     maf = '/disk/genetics/ukb/mahdimir/UKB_PROJECTS_DATA/24Q1/240317_CSF_SSGAC_Alex_UKB_imputed_gt_corr/med/mfi_v3.prq'
 
-    select_snps_with_maf_chr22 = d.med / 'select_snps_with_maf_chr22.parquet'
+    select_snps_chr22_with_maf_gt_1_pct = d.med / 'select_snps_chr22_with_maf_gt_1_pct.parquet'
+    ukb_sibs_pair_iid = '/disk/genetics/ukb/mahdimir/UKB_PROJECTS_DATA/24Q2/5A240425_FS_corr_conditional_on_IBD/med/sibs.prq'
 
 
 class FilePathPattern :
     d = Directory()
 
 
-class Var :
+class Constants :
+    pd_rand_state_4_reproducibility = 42
+
     rsid = 'rsid'
     maf = 'MAF'
+
+
+class Parameters :
+    select_snps_chr22_with_maf_gt_1_pct_count = 2000
+    min_maf = 1 / 100  # 1 percent
 
 
 ##

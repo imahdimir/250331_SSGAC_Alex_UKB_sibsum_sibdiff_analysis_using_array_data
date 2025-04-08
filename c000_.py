@@ -13,9 +13,9 @@ from pathlib import Path
 import numpy as np
 
 
-b000_ENV = hot_reload_a_module_from_cwd('b000_ENV')
+b000_env = hot_reload_a_module_from_cwd('b000_env')
 
-from b000_ENV import Directory , FilePath , Constants , Parameters
+from b000_env import Directory , FilePath , Constants , Parameters
 
 
 ##

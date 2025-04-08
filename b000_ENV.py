@@ -5,17 +5,18 @@ PD_RAND_STATE = 42
 
 
 class Directory :
-    dta = '/disk/genetics/ukb/mahdimir/UKB_PROJECTS_DATA/25Q1/i5i1_SSGAC_tA1_Alex_UKB_sibsum_sibdiff_analysis_using_array_genotyped_data'
+    dta = '/disk/genetics/ukb/mahdimir/UKB_PROJECTS_DATA/i18/i18_n1_SSGAC_tA1_Alex_UKB_sibsum_sibdiff_analysis_using_array_genotyped_data'
     dta = Path(dta)
 
     inp = dta / 'inp'
     med = dta / 'med'
     out = dta / 'out'
 
-    out_synced = '/Users/mmir/Library/CloudStorage/Dropbox/git/i5i2_SSGAC_tA2_Alex_UKB_sibsum_sibdiff_analysis_using_array_genotyped_data/i5i1_SSGAC_tA1_Alex_UKB_sibsum_sibdiff_analysis_using_array_genotyped_data/out_synced'
+    out_synced = '/Users/mmir/Library/CloudStorage/Dropbox/git/i19_n2_SSGAC_tA2_Alex_UKB_sibsum_sibdiff_analysis_using_array_genotyped_data/i18_n1_SSGAC_tA1_Alex_UKB_sibsum_sibdiff_analysis_using_array_genotyped_data/out_synced'
     out_synced = Path(out_synced)
 
-    genotyped_data_decompressed = Path('/disk/genetics/ukb/mahdimir/UKB_NON_PROJECT_DATA/UKBv3_raw_genotyped_decompressed')
+    genotyped_data_decompressed = '/disk/genetics/ukb/mahdimir/UKB_NON_PROJECT_DATA/i24_n1_SSGAC_OnlyOnNBERserver_MahdiUKBws_UKB_NON_PROJECT_DATA_UKBv3_raw_genotyped_decompressed'
+    genotyped_data_decompressed = Path(genotyped_data_decompressed)
 
 
 class FilePath :
@@ -50,11 +51,9 @@ def rsync__run_locally() :
 
 
     ##
-
     d = Directory()
 
     ##
-
     make_rsync_cmds_and_copy_desired_one_to_clipboard_and_execute('g01' ,
                                                                   d.out ,
                                                                   d.out_synced ,

@@ -27,6 +27,9 @@ class FilePath :
 
     select_snps_chr22_with_maf_gt_1_pct = d.med / 'select_snps_chr22_with_maf_gt_1_pct.parquet'
     ukb_sibs_pair_iid = '/disk/genetics/ukb/mahdimir/UKB_PROJECTS_DATA/24Q2/5A240425_FS_corr_conditional_on_IBD/med/sibs.prq'
+    ukb_all_sibs_iid_list = d.med / 'ukb_all_sibs_iid_list.csv'
+
+    all_sibs_select_snps_chr22_genotype = d.med / 'all_sibs_select_snps_chr22_genotype.parquet'
 
 
 class FilePathPattern :
@@ -38,6 +41,10 @@ class Constants :
 
     rsid = 'rsid'
     maf = 'MAF'
+    sib1 = 'sib1'
+    sib2 = 'sib2'
+    iid = 'IID'
+    genotype = 'genotype'
 
 
 class Parameters :
@@ -62,10 +69,11 @@ def rsync__run_locally() :
     make_rsync_cmds_and_copy_desired_one_to_clipboard_and_execute('g01' ,
                                                                   d.out ,
                                                                   d.out_synced ,
-                                                                  1 ,
+                                                                  3 ,
                                                                   True)
 
     ##
+
 
 
     ##

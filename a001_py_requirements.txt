@@ -3,5 +3,6 @@ i7_hot_reload==0.0.0
 bed-reader==1.0.6
 ipython==1.9.0
 pandas==2.2.2
+numpy==1.26.4
 pyarrow==19.0.1
 fastparquet==2024.11.0

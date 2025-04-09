@@ -272,6 +272,137 @@ def create_dataframe_of_all_sibs_select_snps_chr22_genotype() :
 
 
 ##
+def create_product_of_all_sibs_select_snps_chr22_genotype() :
+    pass
+
+    ##
+    fp = FilePath()
+
+    ##
+    df_sibs = pd.read_parquet(fp.ukb_sibs_pair_iid)
+
+    print(df_sibs.head())
+
+    ##
+    df_snps = pd.read_parquet(fp.select_snps_chr22_with_maf_gt_1_pct)
+
+    print(df_snps.head())
+
+    ##
+    df_prd = df_sibs.merge(df_snps , how = 'cross')
+
+    print(df_prd.head())
+
+    ##
+    df_prd.to_parquet(fp.all_sibs_all_select_snps_chr22_product , index = False)
+
+    ##
+
+
+    ##
+
+    ##
+
+
+    ##
+
+
+    ##
+
+
+
+    ##
+
+
+
+    ##
+
+
+
+    ##
+
+
+
+    ##
+
+
+    ##
+
+
+    ##
+
+
+##
+def create_all_sibs_pair_rsids_maf_genotype() :
+    pass
+
+    ##
+    fp = FilePath()
+    c = Constants()
+
+    ##
+    df = pd.read_parquet(fp.all_sibs_all_select_snps_chr22_product)
+    print(df.head())
+
+    ##
+    df_gt = pd.read_parquet(fp.all_sibs_select_snps_chr22_genotype)
+    print(df_gt.head())
+
+    ##
+    df = df.merge(df_gt ,
+                  how = 'left' ,
+                  left_on = [c.sib1 , c.rsid] ,
+                  right_on = [c.iid , c.rsid])
+
+    print(df.head())
+
+    ##
+    df = df.drop(columns = [c.iid])
+
+    df = df.rename(columns = {
+            c.genotype : c.sib1_gt
+            })
+
+    print(df.head())
+
+    ##
+    df = df.merge(df_gt ,
+                  how = 'left' ,
+                  left_on = [c.sib2 , c.rsid] ,
+                  right_on = [c.iid , c.rsid])
+
+    print(df.head())
+
+    ##
+    df = df.drop(columns = [c.iid])
+
+    df = df.rename(columns = {
+            c.genotype : c.sib2_gt
+            })
+
+    print(df.head())
+
+    ##
+    df[c.sib1_plus_sib2_gt] = df[c.sib1_gt] + df[c.sib2_gt]
+    df[c.sib1_minus_sib2_gt] = df[c.sib1_gt] - df[c.sib2_gt]
+
+    print(df.head())
+
+    ##
+    _fp = fp.all_sibs_pairs_rsid_chr22_maf_sib1_gt_sib2_gt
+    df.to_parquet(_fp , index = False)
+
+    ##
+
+
+
+    ##
+
+
+    ##
+
+
+##
 def main() :
     pass
 

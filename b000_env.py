@@ -31,6 +31,9 @@ class FilePath :
 
     all_sibs_select_snps_chr22_genotype = d.med / 'all_sibs_select_snps_chr22_genotype.parquet'
 
+    all_sibs_all_select_snps_chr22_product = d.med / 'all_sibs_all_select_snps_chr22_product.parquet'
+    all_sibs_pairs_rsid_chr22_maf_sib1_gt_sib2_gt = d.med / 'all_sibs_pairs_rsid_chr22_maf_sib1_gt_sib2_gt.parquet'
+
 
 class FilePathPattern :
     d = Directory()
@@ -45,6 +48,10 @@ class Constants :
     sib2 = 'sib2'
     iid = 'IID'
     genotype = 'genotype'
+    sib1_gt = 'sib1_gt'
+    sib2_gt = 'sib2_gt'
+    sib1_plus_sib2_gt = 'sib1_plus_sib2_gt'
+    sib1_minus_sib2_gt = 'sib1_minus_sib2_gt'
 
 
 class Parameters :

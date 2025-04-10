@@ -9,8 +9,8 @@ class Directory :
     med = dta / 'med'
     out = dta / 'out'
 
-    out_synced = '/Users/mmir/Library/CloudStorage/Dropbox/git/i19_n2_SSGAC_tA2_Alex_UKB_sibsum_sibdiff_analysis_using_array_genotyped_data/i18_n1_SSGAC_tA1_Alex_UKB_sibsum_sibdiff_analysis_using_array_genotyped_data/out_synced'
-    out_synced = Path(out_synced)
+    out_mirrored = '/Users/mmir/Library/CloudStorage/Dropbox/git/i19_n2_SSGAC_tA2_Alex_UKB_sibsum_sibdiff_analysis_using_array_genotyped_data/i18_n1_SSGAC_tA1_Alex_UKB_sibsum_sibdiff_analysis_using_array_genotyped_data/out_mirrored'
+    out_mirrored = Path(out_mirrored)
 
     genotyped_data_decompressed = '/disk/genetics/ukb/mahdimir/UKB_NON_PROJECT_DATA/i24_n1_SSGAC_OnlyOnNBERserver_MahdiUKBws_UKB_NON_PROJECT_DATA_UKBv3_raw_genotyped_decompressed'
     genotyped_data_decompressed = Path(genotyped_data_decompressed)
@@ -64,23 +64,38 @@ def rsync__run_locally() :
     pass
 
     ##
-
-    from i6_rsync.rsync import \
-        make_rsync_cmds_and_copy_desired_one_to_clipboard_and_execute
+    from i6_rsync import \
+        print_rsync_cmds_and_copy_desired_one_to_clipboard_and_execute
+    from i6_rsync import rsync_loop
 
 
     ##
     d = Directory()
 
-    ##
-    make_rsync_cmds_and_copy_desired_one_to_clipboard_and_execute('g01' ,
-                                                                  d.out ,
-                                                                  d.out_synced ,
-                                                                  3 ,
-                                                                  True)
+    _host = 'g01'
+    _remote = d.out
+    _local = d.out_mirrored
+    _to_clipboard = 3
+    _to_exec = _to_clipboard
+    _delay = 60
+
+    _f = print_rsync_cmds_and_copy_desired_one_to_clipboard_and_execute
 
     ##
 
+    # -help
+    _f(_host , _remote , _local)
+
+    ##
+    _f(_host , d.out , d.out_mirrored , _to_clipboard , _to_exec)
+
+    ##
+    rsync_loop(_host , _remote , _local , _to_exec , _delay)
+
+    ##
+
+
+    ##
 
 
     ##

@@ -34,6 +34,10 @@ class FilePath :
     all_sibs_all_select_snps_chr22_product = d.med / 'all_sibs_all_select_snps_chr22_product.parquet'
     all_sibs_pairs_rsid_chr22_maf_sib1_gt_sib2_gt = d.med / 'all_sibs_pairs_rsid_chr22_maf_sib1_gt_sib2_gt.parquet'
 
+    lm_g1_plus_g2_on_g1_minus_g2__2K_SNP_chr22_models_summary = d.out / 'lm_g1_plus_g2_on_g1_minus_g2__2K_SNP_chr22_models_summary.txt'
+    lm_g1_plus_g2_on_g1_minus_g2__2K_SNP_chr22_models_coefs = d.out / 'lm_g1_plus_g2_on_g1_minus_g2__2K_SNP_chr22_models_coefs.xlsx'
+    lm_g1_plus_g2_on_g1_minus_g2__2K_SNP_chr22_models_metrics = d.out / 'lm_g1_plus_g2_on_g1_minus_g2__2K_SNP_chr22_models_metrics.xlsx'
+
 
 class FilePathPattern :
     d = Directory()
@@ -95,7 +99,30 @@ def rsync__run_locally() :
     ##
 
 
+##
+def _draft() :
+    pass
+
     ##
+    from pyperclip import copy
+
+
+    fp = FilePath()
+    d = Directory()
+
+    ##
+    copy(fp.all_sibs_pairs_rsid_chr22_maf_sib1_gt_sib2_gt)
+
+    ##
+    copy(fp.lm_g1_plus_g2_on_g1_minus_g2__2K_SNP_chr22_models_coefs)
+
+    ##
+    copy(fp.lm_g1_plus_g2_on_g1_minus_g2__2K_SNP_chr22_models_metrics)
+
+
+
+    ##
+
 
 
     ##

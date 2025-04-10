@@ -3,19 +3,18 @@
 
 """
 
-import importlib
-import os
+import numpy as np
 import pandas as pd
-import sys
 from bed_reader import open_bed
 from i7_hot_reload.hot_reload import hot_reload_a_module_from_cwd
-from pathlib import Path
-import numpy as np
 
 
 b000_env = hot_reload_a_module_from_cwd('b000_env')
 
-from b000_env import Directory , FilePath , Constants , Parameters
+from b000_env import Directory
+from b000_env import FilePath
+from b000_env import Constants
+from b000_env import Parameters
 
 
 ##

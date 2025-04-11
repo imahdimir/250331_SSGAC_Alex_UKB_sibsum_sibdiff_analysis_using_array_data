@@ -1,3 +1,7 @@
+# /TODO: keep the models summary in memory then write them to a file at once for performance
+# /TODO: learn how to fit models in parallel
+
+
 list.of.packages <- c("data.table", "dplyr", "magrittr", "tidyverse", "arrow", "broom", "glue", "writexl")
 lapply(list.of.packages, library, character.only = TRUE)
 

@@ -79,22 +79,3 @@ nrow(df_1)
 cor.test(df_1$sib1_gt, df_1$sib2_gt)
 
 
-# Define the values
-value1 <- 10
-value2 <- 20
-value3 <- 30
-value4 <- 40
-
-# Create a matrix or data frame
-
-
-# Open a connection to append to the text file
-sink(glue("{out_dir}/sib1_gt_var_sib2_gt_var_sib1_sib2_gt_cor_test.txt"), append = TRUE)
-
-
-
-
-
-# Close the connection
-sink()
-

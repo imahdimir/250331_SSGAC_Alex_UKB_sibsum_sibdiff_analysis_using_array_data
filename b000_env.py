@@ -15,6 +15,8 @@ class Directory :
     genotyped_data_decompressed = '/disk/genetics/ukb/mahdimir/UKB_NON_PROJECT_DATA/i24_n1_SSGAC_OnlyOnNBERserver_MahdiUKBws_UKB_NON_PROJECT_DATA_UKBv3_raw_genotyped_decompressed'
     genotyped_data_decompressed = Path(genotyped_data_decompressed)
 
+    mendelian_error = out / 'mendelian_error'
+
 
 class FilePath :
     d = Directory()
@@ -38,6 +40,10 @@ class FilePath :
     lm_g1_plus_g2_on_g1_minus_g2__2K_SNP_chr22_models_coefs = d.out / 'lm_g1_plus_g2_on_g1_minus_g2__2K_SNP_chr22_models_coefs.xlsx'
     lm_g1_plus_g2_on_g1_minus_g2__2K_SNP_chr22_models_metrics = d.out / 'lm_g1_plus_g2_on_g1_minus_g2__2K_SNP_chr22_models_metrics.xlsx'
 
+    ukb_ped = "/disk/genetics/ukb/alextisyoung/phenotypes/ukb.ped"
+
+    fam_with_ped = d.med / 'fam_with_ped.fam'
+
 
 class FilePathPattern :
     d = Directory()
@@ -56,11 +62,23 @@ class Constants :
     sib2_gt = 'sib2_gt'
     sib1_plus_sib2_gt = 'sib1_plus_sib2_gt'
     sib1_minus_sib2_gt = 'sib1_minus_sib2_gt'
+    fid = 'FID'
+    father_id = 'FATHER_ID'
+    mother_id = 'MOTHER_ID'
 
 
 class Parameters :
     select_snps_chr22_with_maf_gt_1_pct_count = 2000
     min_maf = 1 / 100  # 1 percent
+
+
+# temp
+from pyperclip import copy
+
+
+d = Directory()
+fp = FilePath()
+c = Constants()
 
 
 ##

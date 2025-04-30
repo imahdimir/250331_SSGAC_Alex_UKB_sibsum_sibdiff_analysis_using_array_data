@@ -46,6 +46,8 @@ df <- df %>%
 
 sink(glue("{out_dir}/sib1_gt_var_sib2_gt_var_sib1_sib2_gt_cor_test.txt"))
 
+
+
 v1 <- var(df$sib1_gt)
 v2 <- var(df$sib2_gt)
 min_maf <- "1 Percent"

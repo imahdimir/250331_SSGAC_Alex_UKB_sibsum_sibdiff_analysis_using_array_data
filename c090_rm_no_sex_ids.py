@@ -24,7 +24,7 @@ def rm_no_sex_ids() :
     c = Constants()
 
     ##
-    df_fam = pd.read_csv(fp.all_fam ,
+    df_fam = pd.read_csv(fp.fam_with_ped ,
                          sep = ' ' ,
                          header = None ,
                          dtype = 'string')

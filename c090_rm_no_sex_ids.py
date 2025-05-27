@@ -32,51 +32,31 @@ def rm_no_sex_ids() :
     print(df_fam.head())
 
     ##
-    df_ped = pd.read_csv(fp.ukb_ped , sep = ' ' , dtype = 'string')
-    print(df_ped.head())
-    print(df_ped.shape)
+    df_nosex = pd.read_csv(fp.nosex_ids ,
+                           sep = '\t' ,
+                           header = None ,
+                           dtype = 'string')
+
+    print(df_nosex.shape)
+    print(df_nosex.head())
 
     ##
-    df_ped = df_ped[[c.iid , c.father_id , c.mother_id]]
-    print(df_ped.head())
+    msk = df_fam[1].isin(df_nosex[1])
+    print(msk.sum())
 
     ##
-    df_fam = df_fam.rename(columns = {
-            0 : c.fid ,
-            1 : c.iid
-            })
+
+    # drop nosex ids from fam
+    df_fam = df_fam[~msk]
+
 
     ##
-    df_fam = df_fam.merge(df_ped , on = [c.iid] , how = 'left')
-    print(df_fam.shape)
-    print(df_fam.head())
+    _fp = fp.fam_with_ped_nosex_ids_removed
+    df_fam.to_csv(_fp , sep = ' ' , header = False , index = False)
 
     ##
-    df_fam[c.father_id].count() , df_fam[c.mother_id].count()
 
-    ##
-    df_fam[df_fam[c.father_id].notna() & df_fam[c.mother_id].notna()].shape[0]
 
-    ##
-    print(df_fam.head())
-
-    ##
-    df_fam[c.father_id] = df_fam[c.father_id].fillna('0')
-    df_fam[c.mother_id] = df_fam[c.mother_id].fillna('0')
-
-    ##
-    print(df_fam.head())
-
-    ##
-    df_fam[2] = df_fam[c.father_id]
-    df_fam[3] = df_fam[c.mother_id]
-
-    ##
-    df_fam = df_fam[[c.fid , c.iid , 2 , 3 , 4 , 5]]
-    print(df_fam.head())
-
-    ##
-    df_fam.to_csv(fp.fam_with_ped , sep = ' ' , header = False , index = False)
 
     ##
 

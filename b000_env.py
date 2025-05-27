@@ -17,6 +17,8 @@ class Directory :
 
     mendelian_error = out / 'mendelian_error'
 
+    mendelian_error_1 = med / 'mendelian_error_1'
+
 
 class FilePath :
     d = Directory()
@@ -43,6 +45,10 @@ class FilePath :
     ukb_ped = "/disk/genetics/ukb/alextisyoung/phenotypes/ukb.ped"
 
     fam_with_ped = d.med / 'fam_with_ped.fam'
+
+    nosex_ids = d.mendelian_error_1 / 'mendel_errors.nosex'
+
+    fam_with_ped_nosex_ids_removed = d.med / 'fam_with_ped_nosex_ids_removed.fam'
 
 
 class FilePathPattern :

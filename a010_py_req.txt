@@ -1,3 +1,5 @@
+# pyenv venv: i5 on NBER
+pip=25.1.1
 i6_rsync==1.0.0
 i7_hot_reload==0.0.0
 IPython

@@ -1,7 +1,7 @@
 i6_rsync==1.0.0
 i7_hot_reload==0.0.0
+IPython
 bed-reader==1.0.6
-ipython==1.9.0
 pandas==2.2.2
 numpy==1.26.4
 pyarrow==19.0.1

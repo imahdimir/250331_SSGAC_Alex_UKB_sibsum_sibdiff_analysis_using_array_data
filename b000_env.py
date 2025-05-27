@@ -2,7 +2,7 @@ from pathlib import Path
 
 
 class Directory :
-    dta = '/disk/genetics/ukb/mahdimir/UKB_PROJECTS_DATA/i18/i18_n1_SSGAC_tA1_Alex_UKB_sibsum_sibdiff_analysis_using_array_genotyped_data'
+    dta = '/disk/genetics/ukb/mahdimir/UKB_PROJECTS_DATA/i18/i18_g2'
     dta = Path(dta)
 
     inp = dta / 'inp'
@@ -12,7 +12,7 @@ class Directory :
     out_mirrored = '/Users/mmir/Library/CloudStorage/Dropbox/git/i19_n2_SSGAC_tA2_Alex_UKB_sibsum_sibdiff_analysis_using_array_genotyped_data/i18_n1_SSGAC_tA1_Alex_UKB_sibsum_sibdiff_analysis_using_array_genotyped_data/out_mirrored'
     out_mirrored = Path(out_mirrored)
 
-    genotyped_data_decompressed = '/disk/genetics/ukb/mahdimir/UKB_NON_PROJECT_DATA/i24_n1_SSGAC_OnlyOnNBERserver_MahdiUKBws_UKB_NON_PROJECT_DATA_UKBv3_raw_genotyped_decompressed'
+    genotyped_data_decompressed = '/disk/genetics/ukb/mahdimir/UKB_NON_PROJECT_DATA/decompressed__UKBv3_raw_genotyped'
     genotyped_data_decompressed = Path(genotyped_data_decompressed)
 
     mendelian_error = out / 'mendelian_error'

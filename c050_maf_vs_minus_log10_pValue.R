@@ -20,15 +20,12 @@ plot <- ggplot(df_slope, aes(x = MAF, y = minus_log10_p_value)) +
   geom_smooth(method = "lm", se = FALSE, color = "#E74C3C", linewidth = 1) +
   labs(
     title = expression("Relationship Between MAF and " * -log[10](p-value)),
-    subtitle = "Linear regression trend shown in red",
-    x = "Minor Allele Frequency (MAF)",
+    x = expression("MAF"),
     y = expression(-log[10](p-value))
   ) +
-  theme_minimal(base_size = 14) +
+  theme_minimal(base_size = 22) +
   theme(
-    plot.title = element_text(face = "bold", size = 16, hjust = 0.5),
-    plot.subtitle = element_text(size = 12, hjust = 0.5, margin = margin(b = 10)),
-    axis.title = element_text(face = "bold"),
+    plot.title = element_text(face = "bold", size = 24, hjust = 0.5),
     panel.grid.major = element_line(color = "gray90"),
     panel.grid.minor = element_blank()
   )

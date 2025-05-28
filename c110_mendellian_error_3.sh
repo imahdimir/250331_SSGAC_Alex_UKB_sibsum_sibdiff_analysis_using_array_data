@@ -14,4 +14,4 @@ bed_fp="$filtered_bed/filtered__ukb_cal_chr22_v2.bed"
 bim_fp="$filtered_bed/filtered__ukb_cal_chr22_v2.bim"
 fam_fp="$filtered_bed/filtered__ukb_cal_chr22_v2.fam"
 
-$plink19_exec --bed $bed_fp --bim $bim_fp --fam $fam_fp --mendel --mendel-duos --out $mendel_error_dir/mendellian_error
+$plink19_exec --bed $bed_fp --bim $bim_fp --fam $fam_fp --mendel-duos --out $mendel_error_dir/mendellian_error

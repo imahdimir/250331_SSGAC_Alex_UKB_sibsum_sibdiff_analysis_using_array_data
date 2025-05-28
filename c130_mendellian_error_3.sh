@@ -60,3 +60,28 @@ $plink_exec --bed $bed_fp --bim $bim_fp --fam $fam_fp_0 --mendel --out $proj_dta
   #Calculating allele frequencies... done.
   #Total genotyping rate is 0.972879.
   #Warning: Skipping --me/--mendel since there are no trios.
+
+ped="/disk/genetics/ukb/alextisyoung/phenotypes/ukb.ped"
+ped_added_data_dir="$proj_dta_dir/med/ped_added_data"
+mkdir -p $ped_added_data_dir
+
+$plink_exec --bed $bed_fp --bim $bim_fp --fam $fam_fp_0 --update-parents $ped --make-bed --out $ped_added_data_dir/with_ped__ukb_cal_chr22_v2
+cd $ped_added_data_dir
+#/disk/genetics/ukb/mahdimir/UKB_PROJECTS_DATA/i18/i18_g2/med/ped_added_data
+#with_ped__ukb_cal_chr22_v2.bed  with_ped__ukb_cal_chr22_v2.fam  with_ped__ukb_cal_chr22_v2.nosex
+#with_ped__ukb_cal_chr22_v2.bim  with_ped__ukb_cal_chr22_v2.log
+
+# still we have nosex ids in the data and the command doesn't work
+head with_ped__ukb_cal_chr22_v2.fam
+  #3733573 3733573 0 0 1 -9
+  #3571888 3571888 0 0 2 -9
+  #5560849 5560849 0 0 2 -9
+  #3873348 3873348 0 0 2 -9
+  #1263953 1263953 0 0 2 -9
+  #2387298 2387298 0 0 1 -9
+  #1095014 1095014 0 0 2 -9
+  #1087274 1087274 0 0 2 -9
+  #5072957 5072957 0 0 1 -9
+  #3981074 3981074 0 0 2 -9
+
+# the fam file doesn't have the pedigree information

@@ -85,3 +85,6 @@ head with_ped__ukb_cal_chr22_v2.fam
   #3981074 3981074 0 0 2 -9
 
 # the fam file doesn't have the pedigree information
+
+# clean up
+rm -rf $ped_added_data_dir

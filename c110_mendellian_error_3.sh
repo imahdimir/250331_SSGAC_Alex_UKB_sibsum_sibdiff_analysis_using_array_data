@@ -5,7 +5,7 @@ proj_dta_dir="/disk/genetics/ukb/mahdimir/UKB_PROJECTS_DATA/i18/i18_g2"
 mendel_error_dir="$proj_dta_dir/out/mendelian_error_3"
 mkdir -p $mendel_error_dir
 
-filtered_bed="$proj_dta_dir/med/filtered_bed/"
+filtered_bed="$proj_dta_dir/med/filtered_bed"
 
 plink19_exec="/homes/nber/alextisyoung/plink"
 

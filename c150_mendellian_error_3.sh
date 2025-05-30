@@ -81,3 +81,7 @@ $plink_exec --bfile $filtered_bfile_fp \
   #12968 variants loaded from .bim file.
   #490216 people (224259 males, 265957 females) loaded from .fam.
   #Error: Invalid .bed file size (expected 1589280275 bytes).
+
+
+# clenup
+rm -rf $filtered_dataset_dir

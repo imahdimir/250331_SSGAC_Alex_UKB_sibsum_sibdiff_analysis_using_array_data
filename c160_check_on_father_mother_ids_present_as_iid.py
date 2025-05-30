@@ -42,15 +42,15 @@ def main() :
     msk_mother = df_fam[1].isin(mother_ids)
 
     print(f'Count of father_ids in the IIDs: {msk_father.sum()}')
-    # []: Count of father_ids in the IIDs: 1577
+        # []: Count of father_ids in the IIDs: 1577
 
     print(f'Count of mother_ids in the IIDs: {msk_mother.sum()}')
-    # []: Count of mother_ids in the IIDs: 3517
+        # []: Count of mother_ids in the IIDs: 3517
 
     ##
     _test = df_fam[0].eq(df_fam[1]).all()
     print(f'All FIDs equal to IIDs: {_test}')
-    # []: All FIDs equal to IIDs: False
+        # []: All FIDs equal to IIDs: False
 
     ##
 

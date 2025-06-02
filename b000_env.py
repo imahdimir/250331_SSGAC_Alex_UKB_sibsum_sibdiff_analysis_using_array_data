@@ -50,6 +50,8 @@ class FilePath :
 
     fam_with_ped_nosex_ids_removed = d.med / 'fam_with_ped_nosex_ids_removed.fam'
 
+    fam_with_same_fid_for_po_pairs = d.med / 'fam_with_same_fid_for_po_pairs.fam'
+
 
 class FilePathPattern :
     d = Directory()

@@ -15,15 +15,14 @@ class Directory :
     genotyped_data_decompressed = '/disk/genetics/ukb/mahdimir/UKB_NON_PROJECT_DATA/decompressed__UKBv3_raw_genotyped'
     genotyped_data_decompressed = Path(genotyped_data_decompressed)
 
-    mendelian_error = out / 'mendelian_error'
-
-    mendelian_error_1 = med / 'mendelian_error_1'
+    linked_but_renamed_data = med / 'linked_but_renamed_data'
 
 
 class FilePath :
     d = Directory()
 
     chr22_bed = d.genotyped_data_decompressed / 'ukb_cal_chr22_v2.bed'
+    chr22_bed_in_linked_but_renamed_data = d.linked_but_renamed_data / chr22_bed.name
     chr22_bim = d.genotyped_data_decompressed / 'ukb_snp_chr22_v2.bim'
     all_fam = d.genotyped_data_decompressed / 'all.fam'
 
@@ -46,11 +45,11 @@ class FilePath :
 
     fam_with_ped = d.med / 'fam_with_ped.fam'
 
-    nosex_ids = d.mendelian_error_1 / 'mendel_errors.nosex'
-
     fam_with_ped_nosex_ids_removed = d.med / 'fam_with_ped_nosex_ids_removed.fam'
 
     fam_with_same_fid_for_po_pairs = d.med / 'fam_with_same_fid_for_po_pairs.fam'
+
+    genome_err_obj = d.med / 'genome_err.pkl'
 
 
 class FilePathPattern :
@@ -81,9 +80,6 @@ class Parameters :
 
 
 # temp
-from pyperclip import copy
-
-
 d = Directory()
 fp = FilePath()
 c = Constants()

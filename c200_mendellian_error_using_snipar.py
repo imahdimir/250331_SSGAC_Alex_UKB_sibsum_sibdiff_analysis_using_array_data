@@ -127,50 +127,20 @@ def main() :
     df_plot[c.minus_log10_pvalue] = -np.log10(df_plot[c.pvalue])
 
     ##
-    
-
-
-    ##
-
-
+    _fp = fp.plot_data__mend_err_vs_minus_log10_pvalue
+    df_plot.to_csv(_fp , index = False)
 
     ##
 
 
     ##
 
-##
 
-##
-
-
-##
+    ##
 
 
-##
 
 
-##
-
-
-##
-
-
-##
-
-##
-
-
-##
-
-
-##
-
-
-##
-
-
-##
 
 
 ##
@@ -184,6 +154,10 @@ if __name__ == '__main__' :
 ##
 def _test() :
     pass
+
+    ##
+    fp.plot_data__mend_err_vs_minus_log10_pvalue
+
 
     ##
 

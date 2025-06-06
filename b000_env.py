@@ -51,6 +51,8 @@ class FilePath :
 
     genome_err_obj = d.med / 'genome_err.pkl'
 
+    mend_err_vs_minus_log10_pvalue_data = d.out / 'mend_err_vs_minus_log10_pvalue.csv'
+
 
 class FilePathPattern :
     d = Directory()
@@ -72,6 +74,10 @@ class Constants :
     fid = 'FID'
     father_id = 'FATHER_ID'
     mother_id = 'MOTHER_ID'
+    mend_error_estimate = 'mendellian_error_estimate'
+    term = 'term'
+    pvalue = 'p.value'
+    minus_log10_pvalue = '-log10_p.value'
 
 
 class Parameters :

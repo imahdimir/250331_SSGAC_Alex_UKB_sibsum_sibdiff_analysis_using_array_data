@@ -2,12 +2,12 @@ from pathlib import Path
 
 
 class Directory :
-    dta = '/disk/genetics/ukb/mahdimir/UKB_PROJECTS_DATA/i18/i18_g2'
-    dta = Path(dta)
+    proj_data = '/disk/genetics/ukb/mahdimir/UKB_PROJECTS_DATA/i18/i18_g2'
+    proj_data = Path(proj_data)
 
-    inp = dta / 'inp'
-    med = dta / 'med'
-    out = dta / 'out'
+    inp = proj_data / 'inp'
+    med = proj_data / 'med'
+    out = proj_data / 'out'
 
     out_mirrored = '/Users/mmir/Library/CloudStorage/Dropbox/git/i19_n2_SSGAC_tA2_Alex_UKB_sibsum_sibdiff_analysis_using_array_genotyped_data/i18_n1_SSGAC_tA1_Alex_UKB_sibsum_sibdiff_analysis_using_array_genotyped_data/out_mirrored'
     out_mirrored = Path(out_mirrored)
@@ -52,6 +52,7 @@ class FilePath :
     genome_err_obj = d.med / 'genome_err.pkl'
 
     plot_data__mend_err_vs_minus_log10_pvalue = d.out / 'plot_data__mend_err_vs_minus_log10_pvalue.csv'
+    plot_data__log_ratio_vs_statistic = d.out / 'plot_data__log_ratio_vs_statistic.csv'
 
 
 class FilePathPattern :
@@ -78,6 +79,10 @@ class Constants :
     term = 'term'
     pvalue = 'p.value'
     minus_log10_pvalue = 'minus_log10_p.value'
+    var_sib1_gt = 'var_sib1_gt'
+    var_sib2_gt = 'var_sib2_gt'
+    log_ratio = 'log_ratio_variances'
+    statistic = 'statistic'
 
 
 class Parameters :

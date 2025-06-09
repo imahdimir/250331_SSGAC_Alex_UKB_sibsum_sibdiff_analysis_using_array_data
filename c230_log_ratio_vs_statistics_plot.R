@@ -1,7 +1,7 @@
 #!/usr/bin/env Rscript
 
 ## ---------------------------------------------------------------------
-## description: plots mendellian error estimate vs -log10(p.value) from sib-sum sib-diff regression, merged on RSID
+## description:
 ## ---------------------------------------------------------------------
 
 

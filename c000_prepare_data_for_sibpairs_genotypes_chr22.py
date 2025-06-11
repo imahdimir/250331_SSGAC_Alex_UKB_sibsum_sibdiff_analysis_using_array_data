@@ -93,7 +93,7 @@ def save_all_sibs_iids_as_a_list() :
 
     ##
     df = pd.read_parquet(fp.ukb_sibs_pair_iid)
-    df.head()
+    print(df.head())
 
     ##
     stacked = pd.concat([df[c.sib1] , df[c.sib2]] , ignore_index = True)
@@ -417,3 +417,26 @@ def main() :
 ##
 if __name__ == '__main__' :
     main()
+
+
+##
+def _test() :
+    pass
+
+    ##
+    rel = '/disk/genetics/ukb/alextisyoung/haplotypes/relatives/bedfiles/hap.kin0'
+
+    dft = pd.read_csv(rel , sep = '\s')
+
+    # this is wehre the SIBS IIDs are coming
+
+    ##
+
+
+    ##
+
+
+    ##
+
+
+    ##

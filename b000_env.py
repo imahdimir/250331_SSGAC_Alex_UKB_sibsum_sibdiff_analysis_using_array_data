@@ -60,6 +60,8 @@ class FilePath :
     sim_chr1_bed = d.sim_dir / 'chr_1.bed'
 
     reg_data__simulated_sib_pairs_gts = d.med / 'reg_data__simulated_sib_pairs_gts.parquet'
+    gsim__models_coefs_csv = d.med / 'gSim__models_coefs.csv'
+    gsim__log_ratio_vs_statistic_plot_data__csv = d.med / 'gSim__log_ratio_vs_statistic_plot_data.csv'
 
 
 class FilePathPattern :

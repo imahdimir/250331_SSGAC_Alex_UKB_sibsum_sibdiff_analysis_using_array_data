@@ -17,6 +17,8 @@ class Directory :
 
     linked_but_renamed_data = med / 'linked_but_renamed_data'
 
+    sim_dir = med / 'simulation_1_gen_of_sibs_using_snipar'
+
 
 class FilePath :
     d = Directory()
@@ -54,6 +56,11 @@ class FilePath :
     plot_data__mend_err_vs_minus_log10_pvalue = d.out / 'plot_data__mend_err_vs_minus_log10_pvalue.csv'
     plot_data__log_ratio_vs_statistic = d.out / 'plot_data__log_ratio_vs_statistic.csv'
 
+    sim_chr1_bim = d.sim_dir / 'chr_1.bim'
+    sim_chr1_bed = d.sim_dir / 'chr_1.bed'
+
+    reg_data__simulated_sib_pairs_gts = d.med / 'reg_data__simulated_sib_pairs_gts.parquet'
+
 
 class FilePathPattern :
     d = Directory()
@@ -83,6 +90,9 @@ class Constants :
     var_sib2_gt = 'var_sib2_gt'
     log_ratio = 'log_ratio_variances'
     statistic = 'statistic'
+    is_sib1 = 'is_sib1'
+    sib1_iid = 'sib1_iid'
+    sib2_iid = 'sib2_iid'
 
 
 class Parameters :
